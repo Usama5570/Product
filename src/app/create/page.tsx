@@ -1,21 +1,21 @@
 "use client"
 
 import { ChangeEvent, useState } from "react"
-import { FormEvent } from "react";
+
 import { MouseEvent } from "react";
 export default function CreateUser() {
     // const router=useRouter()
 
-    let [name, setname] = useState<string>("");
-    let [description, setdescription] = useState<string>('');
-    let [price, setprice] = useState<number>();
-      const [picture, setpicture] = useState<File | null>(null)
+    const [name, setname] = useState<string>("");
+    const [description, setdescription] = useState<string>('');
+    const [price, setprice] = useState<number>();
+    //   const [picture, setpicture] = useState<File | null>(null)
 
-    const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-            setpicture(e.target.files[0]);
-        }
-    };
+    // const handleImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    //     if (e.target.files) {
+    //         setpicture(e.target.files[0]);
+    //     }
+    // };
     const formData = new FormData();
     formData.append('name', name);
     formData.append('description', description);
@@ -28,7 +28,7 @@ export default function CreateUser() {
     //     formData.append('picture', picture);
     // }
     const handlesubmit = async (e: MouseEvent<HTMLButtonElement>) => {
-        
+        e.preventDefault();
        
         try {
 
@@ -67,13 +67,13 @@ export default function CreateUser() {
                         className="p-3 bg-amber-100 text-black rounded-2xl border-2 border-black "
                         onChange={(e) => setname(e.target.value)}
                     />
-                    <input
+                    {/* <input
                         type="file"
                         
                         placeholder="Upload Product Image"
                         className="p-3 bg-amber-100 text-black rounded-2xl border-2 border-black "
                         onChange={handleImageChange}
-                    />
+                    /> */}
                     <input
                         type="text"
                        

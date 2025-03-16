@@ -4,15 +4,15 @@ import { NextResponse } from 'next/server';
 
 import db from '../../db/connection'
 import Product from '../../models/Productmodel'
-import type { NextApiRequest, NextApiResponse } from 'next';
+
 
 const POST = async (request: Request) => {
   await db();
 
   const data = await request.formData();
-  var product_name: any = data.get('name')
-  var product_description: any = data.get('description')
-  var product_price: any = data.get('price')
+  let product_name = data.get('name')
+  let product_description = data.get('description')
+  let product_price = data.get('price')
   // var product_picture: any = data.get('picture')
 
   const ProductData = {
@@ -26,7 +26,7 @@ const POST = async (request: Request) => {
   await Product.create(ProductData)
   try {
     return NextResponse.json({ message: 'Product created', data: ProductData }, { status: 201 });
-  } catch (error) {
+  } catch {
     // Handle errors
     return NextResponse.json({ error: 'Failed to create product' }, { status: 500 });
   }
