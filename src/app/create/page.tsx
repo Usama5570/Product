@@ -1,6 +1,6 @@
 "use client"
 
-import { ChangeEvent, useState } from "react"
+import {  useState } from "react"
 
 import { MouseEvent } from "react";
 export default function CreateUser() {

@@ -10,9 +10,9 @@ const POST = async (request: Request) => {
   await db();
 
   const data = await request.formData();
-  let product_name = data.get('name')
-  let product_description = data.get('description')
-  let product_price = data.get('price')
+  const product_name = data.get('name')
+  const product_description = data.get('description')
+  const product_price = data.get('price')
   // var product_picture: any = data.get('picture')
 
   const ProductData = {
